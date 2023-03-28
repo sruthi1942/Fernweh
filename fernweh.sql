@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2023 at 03:01 PM
+-- Generation Time: Mar 28, 2023 at 08:16 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -53,6 +53,13 @@ CREATE TABLE `contact` (
   `message` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `email`, `message`) VALUES
+(1, '', 'please reach out to me. i want to become a writer');
+
 -- --------------------------------------------------------
 
 --
@@ -71,6 +78,14 @@ CREATE TABLE `post` (
   `teller_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`id`, `title`, `content`, `post_date`, `image`, `location`, `category`, `update`, `teller_id`) VALUES
+(2, 'first post', '<p>this our first post</p>\r\n', '2023-03-28', 'Scan333333.jpg', 'uk', 'romance', NULL, 5),
+(3, 'first Post', '<p>This is our first post ever.</p>\r\n', '2023-03-28', 'today.jpeg', 'UK', 'Science', NULL, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -88,7 +103,11 @@ CREATE TABLE `seekers` (
 --
 
 INSERT INTO `seekers` (`sk_id`, `email`, `password`) VALUES
-(1, 'admin@admin.com', '1816ac0b4bf213b0cfaacd48b6127f12');
+(1, 'admin@admin.com', '1816ac0b4bf213b0cfaacd48b6127f12'),
+(2, 'embrown@gmail.com', '2119eb59afc81b22cf8a4298047f9723'),
+(3, 'admin@webdamn.com', '2119eb59afc81b22cf8a4298047f9723'),
+(5, 'shruti@gmail.com', '1816ac0b4bf213b0cfaacd48b6127f12'),
+(6, 'seeker@gmail.com', '1816ac0b4bf213b0cfaacd48b6127f12');
 
 -- --------------------------------------------------------
 
@@ -105,6 +124,14 @@ CREATE TABLE `tellers` (
   `gender` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tellers`
+--
+
+INSERT INTO `tellers` (`teller_id`, `fname`, `lname`, `email`, `password`, `gender`, `image`) VALUES
+(5, 'brown', 'james', 'email@email.com', '1816ac0b4bf213b0cfaacd48b6127f12', 'female', 'Scan333333.jpg'),
+(6, 'randesh', 'simm', 'shruti@gmail.com', '1816ac0b4bf213b0cfaacd48b6127f12', 'male', 'me.jpeg');
 
 --
 -- Indexes for dumped tables
@@ -155,25 +182,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `seekers`
 --
 ALTER TABLE `seekers`
-  MODIFY `sk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tellers`
 --
 ALTER TABLE `tellers`
-  MODIFY `teller_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `teller_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
