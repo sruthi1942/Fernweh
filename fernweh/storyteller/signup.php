@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
     } else {
         
             $sql = "SELECT * FROM tellers WHERE  email = '$email'";
-            $result = mysqli_query($conn, $sql);
+            $result = mysqli_query($con, $sql);
          
           if(!$result || mysqli_num_rows($result) == 0)  {
                  move_uploaded_file($image_temp, "image/$image");
@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
                 $result = mysqli_query($con, $sql);
                 if ($result) {
                     $showAlert = true;
-                    header("Location: login.php?signupsuccess=true");
+                    header("Location: signin.php?signupsuccess=true");
                     exit();
                 }
                 
@@ -63,11 +63,11 @@ if (isset($_POST['submit'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Sign </title>
+    <title>Sign Up</title>
 </head>
 
 <body>
-    <?php include "includes/navigation.php"?>
+    <?php include "include/navigation.php"?>
     <!--END NAVIGATION BAR--->
     <div class="col-md-8 mx-auto text-center">
         <h6 class="text-primary"></h6> 
@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="mb-3 col-md-6">
                     <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                    <input type="email" class="form-control" name="last" required id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" name="last" required id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 </div>
                 <div class="mb-3 col-md-6">
@@ -116,7 +116,7 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <p>Have an account? <a href="signin.php">Sign in.</a></p> <button type="submit" class="btn btn-primary" name="submit">Sign up</button>
+                    <p>Have an account? <a href="signin.php">Sign in.</a></p> <button type="submit" class="btn btn-primary" name="submit">Create Account</button>
                 </div>
             </form>
             
@@ -125,46 +125,3 @@ if (isset($_POST['submit'])) {
 </body>
 
 </html>
-
-<form action="author_register.php" class="row g-3" method="post" enctype="multipart/form-data">
-                    <div class="col-md-6">
-                        <label for="inputEmail4" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="inputEmail4" name="fname" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputPassword4" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="inputPassword4" name="lname" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" name="email" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputPassword4" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4" name="psw" required>
-                    </div>
-                    <div class="col-12">
-                        <label for="inputAddress" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="inputAddress" placeholder="re-type password" name="confirmPsw" required>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <label for="inputCity" class="form-label">Country</label>
-                        <input type="text" class="form-control" id="inputCity" name="country" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputState" class="form-label">Gender</label>
-                        <select id="inputState" class="form-select" name="gender">
-                        <option selected>Choose...</option>
-                        <option value="female">Female</option>
-                        <option value="male">Male</option>
-                        <option value="other">other</option>
-                        </select>
-                    </div>
-                    
-                   
-                    <div class="d-flex justify-content-between">
-                        <span>Already have an account? <a href="login.php">Login here.</a></span>
-                        <button type="submit" class="btn btn-primary">Create Account</button>
-                    </div>
-                </form>

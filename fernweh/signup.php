@@ -61,6 +61,7 @@ if (isset($_POST['submit'])) {
     </div>
     <div class="row">
         <div class="container col-md-5 mt-5">
+            <p><a href="./storyteller/signin.php" class="fs-4">Teller Sign in</a></p>
             <p class="fs-3 fw-bolder">Seeker sign up</p>
             <form method="post" >
                 <?php

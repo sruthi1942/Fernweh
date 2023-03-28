@@ -62,7 +62,7 @@ if (isset($_GET['del_id'])) {
                     while($row = mysqli_fetch_assoc($result)){
 
                         $id = $row['sk_id'];
-                        $title = $row['email'];
+                        $email = $row['email'];
                         
                         
                         echo '

@@ -12,7 +12,7 @@ $image = $_FILES['image']['name'];
 $image_temp = $_FILES['image']['tmp_name'];
 $category = $_POST['category'];
 $location = $_POST['location'];
-move_uploaded_file($image_temp, "../storyteller/image/$image" );
+move_uploaded_file($image_temp, "../storyteller/images/$image" );
 if(empty($image)){
 $query = "SELECT * FROM post WHERE id=$id1 ";
 $image1 = mysqli_query($con, $query);

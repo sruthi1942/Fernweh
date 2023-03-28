@@ -41,10 +41,10 @@ if($result){
             <div class="dasboard-content px-3pt-4">
                     <div class="container">
                          <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                             <p class="text-dark bg-info fs-3 fw-bolder">Storytellers: <?php echo $tellers;?></p>    
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                             <p class="text-dark bg-info fs-3 fw-bolder">Story Seekers: <?php echo $seekers;?></p>    
                             </div>
                         </div>
@@ -58,7 +58,7 @@ if($result){
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     
-    <div class="sticky-lg-bottom text-dark text-center">© company name 2023. All rights reserved.</div>
+    <div class="sticky-lg-bottom text-dark text-center">© Fernweh 2023. All rights reserved.</div>
   </main>
 </body>
 </html>

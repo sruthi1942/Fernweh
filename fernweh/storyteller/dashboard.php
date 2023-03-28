@@ -51,7 +51,7 @@ if (isset($_GET['del_id'])) {
             <?php
     
                 $sql = "SELECT * FROM post where teller_id = $id";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($con, $sql);
 
                 if($result){
                     while($row = mysqli_fetch_assoc($result)){

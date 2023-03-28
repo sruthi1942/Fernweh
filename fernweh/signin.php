@@ -61,7 +61,8 @@ if (mysqli_num_rows($result) === 1) {
     </div>
         <div class="row">
             <div class="container col-md-5 mt-5">
-                <p class="fs-3 fw-bolder">Story seeker sign in</p>
+                <p><a href="./storyteller/signin.php" class="fs-4">Teller Sign in</a></p>
+                <p class="fs-3 fw-bolder">Story seeker sign in</p> 
                 <form method="post">
                     <?php
                         if(isset($_GET['error'])) { ?>

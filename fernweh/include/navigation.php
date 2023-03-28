@@ -16,9 +16,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.php">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Support us</a>
-                    </li>
+                    
                     
                 </ul>  
                     <button class="btn btn-secondary" type="submit"><a href="signup.php" class="text-decoration-none text-light">Sign up</a></button>
