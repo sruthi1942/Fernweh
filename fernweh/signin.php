@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
 if (empty($email)) {
     header("Location: signin.php?error=Email is required");
     exit();
-} else if (empty($pass)) {
+} else if (empty($password)) {
     header("Location: signin.php?error=Password is required");
     exit();
 }
@@ -75,12 +75,12 @@ if (mysqli_num_rows($result) === 1) {
                     ?>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" class="form-control"autocomplete="off"  name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
                         
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                        <input type="password"autocomplete="off"  name="password" class="form-control" id="exampleInputPassword1">
                         <p class="d-flex justify-content-end"><a href="">Forgot password?</a></p>
                     </div>
                     

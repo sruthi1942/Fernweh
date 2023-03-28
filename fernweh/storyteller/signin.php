@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'include/conn.php';
 
 if (isset($_POST['submit'])) {
@@ -77,18 +78,18 @@ if (mysqli_num_rows($result) === 1) {
                     ?>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" autocomplete="off" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control"  name="password" id="exampleInputPassword1">
+                    <input type="password" autocomplete="off" class="form-control"  name="password" id="exampleInputPassword1">
                     
                 </div>
                 <
 
                 <div class="d-flex justify-content-between">
-                    <p>Do not have an account? <a href="signup.php">Sign up.</a></p> <button type="submit" class="btn btn-primary" name="submit">Sign up</button>
+                    <p>Do not have an account? <a href="signup.php">Sign up.</a></p> <button type="submit" class="btn btn-primary" name="submit">Sign in</button>
                 </div>
             </form>
         </div>

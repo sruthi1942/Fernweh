@@ -3,12 +3,11 @@ session_start();
 include 'include/conn.php';
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
-    $password = md5($_POST['password']);;
+    $password = md5($_POST['password']);
     $cpassword = md5($_POST['cpassword']);
-    $email = $_POST['email'];
     if ($password != $cpassword) {
         $showError = "Passwords do not match";
-        header("Location: signUp.php?signupsuccess=false&error=$showError");
+        header("Location: signup.php?signupsuccess=false&error=$showError");
         exit();
     } else {
         if (!empty($email) && !empty($password)) {
@@ -19,15 +18,19 @@ if (isset($_POST['submit'])) {
                 $result = mysqli_query($con, $sql);
                 if ($result) {
                     $showAlert = true;
-                    header("Location: signIn.php?signupsuccess=true");
+                    header("Location: signin.php?signupsuccess=true");
                     exit();
                 }
                 
             } else {
-                $showError = "email already exists";
+                $showError = "Email already exists";
+                header("Location: signup.php?error=$showError");
+                exit();
             }
         } else {
-            $showError = "some fields are empty";
+            $showError = "Some fields are empty";
+            header("Location: signup.php?error=$showError");
+            exit();
         }
     }
 
@@ -70,17 +73,17 @@ if (isset($_POST['submit'])) {
                     <?php } ?>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" autocomplete="off" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control"  name="password" id="exampleInputPassword1">
+                    <input type="password" autocomplete="off" class="form-control"  name="password" id="exampleInputPassword1">
                     
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" name="cpassword" id="exampleInputPassword1">
+                    <input type="password" autocomplete="off" class="form-control" name="cpassword" id="exampleInputPassword1">
                     
                 </div>
 

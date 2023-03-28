@@ -27,11 +27,11 @@ if (mysqli_num_rows($result) === 1) {
         header("Location:dashboard.php");
         exit();
     } else {
-        header("Location: signin.php?error=Incorrect username or password");
+        header("Location: index.php?error=Incorrect username or password");
         exit();
     }
 } else {
-    header("Location: signin.php?error=Incorrect username or password");
+    header("Location: index.php?error=Incorrect username or password");
     exit();
 }
 }
@@ -62,14 +62,19 @@ if (mysqli_num_rows($result) === 1) {
             <div class="container col-md-5 mt-5">
                 <p class="fs-3 fw-bolder">Admin Login</p>
                 <form method="post">
+                    <?php
+                        if(isset($_GET['error'])) { ?>
+                        <p class="alert alert-danger" role="alert"> <?php echo $_GET['error']; ?></p>
+                    <?php } ?>
+
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Username</label>
-                        <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" autocomplete="off" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp">
                         
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                        <input type="password" autocomplete="off" name="password" class="form-control" id="exampleInputPassword1">
                         
                     </div>
                     

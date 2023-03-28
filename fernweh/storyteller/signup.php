@@ -76,19 +76,23 @@ if (isset($_POST['submit'])) {
         <div class="container col-md-5 mt-5">
             <p class="fs-3 fw-bolder">Teller Sign up</p>
             <form class="row g-3" method="post" enctype="multipart/form-data">
+                <?php
+                        if(isset($_GET['error'])) { ?>
+                        <p class="alert alert-danger" role="alert"> <?php echo $_GET['error']; ?></p>
+                    <?php } ?>
                 <div class="mb-3 colmd-6">
                     <label for="exampleInputEmail1" class="form-label">First Name</label>
-                    <input type="text" class="form-control" name="first" id="exampleInputEmail1" required aria-describedby="emailHelp">
+                    <input type="text" autocomplete="off" class="form-control" name="first" id="exampleInputEmail1" required aria-describedby="emailHelp">
 
                 </div>
                 <div class="mb-3 col-md-6">
                     <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" name="last" required id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" autocomplete="off" class="form-control" name="last" required id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 </div>
                 <div class="mb-3 col-md-6">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" required aria-describedby="emailHelp">
+                    <input type="email" class="form-control" autocomplete="off"  name="email" id="exampleInputEmail1" required aria-describedby="emailHelp">
                 </div>
                 <div class="col-md-6">
                         <label for="inputState" class="form-label">Gender</label>
@@ -102,7 +106,7 @@ if (isset($_POST['submit'])) {
 
                 <div class="mb-3 col-md-6">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control"  required name="password" id="exampleInputPassword1">
+                    <input type="password" autocomplete="off" class="form-control"  required name="password" id="exampleInputPassword1">
                     
                 </div>
                 <div class="mb-3 col-md-6">
@@ -122,6 +126,7 @@ if (isset($_POST['submit'])) {
             
         </div>
     </div>
+    <div class="sticky-lg-bottom text-dark text-center">©Fernweh 2023. All rights reserved.</div>
 </body>
 
 </html>

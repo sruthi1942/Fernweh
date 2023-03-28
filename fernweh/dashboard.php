@@ -12,18 +12,13 @@ include 'include/conn.php';
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <title>Dashboard|Home</title>
-    <style>
-        .active2{
-            background-color:#337ab7;
-            border-color:#337ab7;
-        }
-    </style>
+    
 </head>
 <body>
     <main>
         
         <div class="d-flex"> 
-          <?php include 'includes/sidebar.php';?>
+          <?php include 'include/sidebar.php';?>
             <div class="container">
                         <div class="row">
                                 <?php
@@ -35,7 +30,7 @@ include 'include/conn.php';
                                         {   $tell_id = $post['teller_id'];
                                             $id = $post["id"];
                                             $image = $post["image"];
-                                            $sql2 = "SELECT fname,lname from tellers where tell_id = $tell_id ";
+                                            $sql2 = "SELECT fname,lname from tellers where teller_id = $tell_id ";
                                             $result2 = mysqli_query($con, $sql2);
                                             $row = mysqli_fetch_assoc($result2);
 

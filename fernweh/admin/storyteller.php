@@ -36,12 +36,13 @@ if (isset($_GET['del'])) {
           <?php include 'include/sidebar.php';?>
 
             <table class="table table-striped table-hover">
-              <?php
+              
+            <thead>
+                <p><?php
                         if (isset($_GET['deletesuccess']) && $_GET['deletesuccess'] == "true") {
                             echo '<p class="alert alert-success" role="alert">Delete successful!</p>';
                         }
-                    ?>
-            <thead>
+                    ?></p>
               <tr>
                 <th scope="col">S.No</th>
                 <th scope="col">First Name</th>
@@ -73,7 +74,7 @@ if (isset($_GET['del'])) {
                             <td>'.$fname.'</td>
                              <td>'.$lname.'</td>
                               <td>'.$email.'</td>
-                               <td><img src="../storyteller/images/'.$image.'"style="width:50px; border-radius:50%;"/></td>
+                               <td><img src="../storyteller/image/'.$image.'"style="width:50px; border-radius:50%;"/></td>
                             
                             <td>
                                 <a href="storyteller.php?del='.$id.'"><i class="fa fa-trash" style="color:red"></i></a>&nbsp;&nbsp;

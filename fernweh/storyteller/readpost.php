@@ -43,13 +43,13 @@ if (isset($_GET['view_id'])) {
             <div class="container">
                         <div class="row">
                             					<div class="col-md-12">
-                                					<img src="./writer/imagePost/<?php echo htmlentities($row['image']);?>" width="650" height="650" alt="">
+                                					<img src="image/<?php echo htmlentities($row['image']);?>" width="350" height="350" alt="">
                             					</div>
                             					<div class="col-md-12">
-                                					<p><?php echo htmlentities($row['title']);?></p>
+                                					<p><?php echo $title;?></p>
                             					</div>
                         						<div class="col-md-12">
-                            						<?php echo htmlentities($row['content']);?>
+                            						<?php echo $content;?>
                         						</div>
                         					</div>
                     </div>

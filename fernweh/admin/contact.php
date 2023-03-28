@@ -1,7 +1,20 @@
 <?php
 session_start();
 include 'include/conn.php';
-$id = $_SESSION['id'];
+$user_id = $_SESSION['id'];
+if (isset($_GET['del_id'])) {
+    $id = $_GET['del_id'];
+    
+    $sql = "DELETE FROM contact where id= $id";
+    $result = mysqli_query($con, $sql);
+    if ($result) {
+        header("Location: contact.php?deletesuccess=true");
+        exit(0);
+        } 
+        else {
+            die(mysqli_error($con));
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -22,11 +35,7 @@ $id = $_SESSION['id'];
           <?php include 'include/sidebar.php';?>
 
             <table class="table table-striped table-hover">
-              <?php
-                        if (isset($_GET['deletesuccess']) && $_GET['deletesuccess'] == "true") {
-                            echo '<p class="alert alert-success" role="alert">Delete successful!</p>';
-                        }
-                    ?>
+              
             <thead>
               <tr>
                 <th scope="col">S.No</th>
@@ -48,7 +57,7 @@ $id = $_SESSION['id'];
 
                         $id = $row['id'];
                         $email = $row['email'];
-                        $message = substr($row['Message'],0,10);
+                        $message = substr($row['message'],0,10);
                         
                         
                         echo '
@@ -57,7 +66,7 @@ $id = $_SESSION['id'];
                             <td>'.$email.'</td>
                              <td>'.$message.'</td>
                             <td>
-                                <a href="seekerDelete.php?del='.$id.'"><i class="fa fa-trash" style="color:red"></i></a>&nbsp;&nbsp;
+                                <a href="contact.php?del='.$id.'"><i class="fa fa-trash" style="color:red"></i></a>&nbsp;&nbsp;
                             <td>
                         </tr>';
                     }

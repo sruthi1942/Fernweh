@@ -1,7 +1,9 @@
 <?php
 session_start();
 include 'include/conn.php';
+
 $id = $_SESSION['id'];
+
 if (isset($_GET['del_id'])) {
     $id = $_GET['del_id'];
     
@@ -67,7 +69,7 @@ if (isset($_GET['del_id'])) {
                             <td>'.$content.'</td>
                             <td>
                                 <button class="btn btn-primary me-3"><a href="edit.php?edi_id='.$id.'" class="text-light" style="text-decoration:none;">Edit</a></button >
-                                <button class="btn btn-primary me-3"><a href="view_story.php?view_id='.$id.'" class="text-light" style="text-decoration:none;">View</a></button>
+                                <button class="btn btn-primary me-3"><a href="readpost.php?view_id='.$id.'" class="text-light" style="text-decoration:none;">View</a></button>
                                 <button class="btn btn-danger"><a href="dashboard.php?del_id='.$id.'" class="text-light" style="text-decoration:none;">Delete</a></button>
                             </td>
                         </tr>';
@@ -83,7 +85,7 @@ if (isset($_GET['del_id'])) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     
-    <div class="sticky-lg-bottom text-dark text-center">© company name 2023. All rights reserved.</div>
+    <div class="sticky-lg-bottom text-dark text-center">©Fernweh 2023. All rights reserved.</div>
   </main>
 </body>
 </html>

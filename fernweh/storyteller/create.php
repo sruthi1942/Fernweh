@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "include/config.php";
+include "include/conn.php";
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 $title = $_POST['title'];
 $description = $_POST['content'];
@@ -20,20 +20,20 @@ function remove_tags($value)
 move_uploaded_file($image_temp, "image/$image");
 
 //SQL Injection
-$title = remove_tage($title);
+$title = remove_tags($title);
 $description = remove_tags($description);
 $image = remove_tags($image);
 $loc = remove_tags($loc);
 $categ = remove_tags($categ);
 
 
-if($title == '' || $description == '' || $keywords == '' || $loc == '' || $categ == '' || $image == ''){
+if($title == '' || $description == '' || $loc == '' || $categ == '' || $image == ''){
 echo "<p class='alert alert-danger'>Please fill all fields</p>";
 }else{
 //inserting into database
 $query = "INSERT INTO post (title, content, image, category, location, teller_id)";
 $query .= "VALUES ('$title', '$description', '$image', '$categ', '$loc', $user_id)";
-$result = mysqli_query($conn, $query);
+$result = mysqli_query($con, $query);
 if(!$result){
 echo "<script>alert('OOps! Upload failed. Try again');</script";
 
@@ -55,6 +55,7 @@ header( "location:dashboard.php" );
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
     <title>Create Post</title>
     
 </head>
@@ -62,18 +63,18 @@ header( "location:dashboard.php" );
     <main>
         
         <div class="d-flex"> 
-          <?php include 'includes/sidebar.php';?>
+          <?php include 'include/sidebar.php';?>
             <div class="container justify-content-center">
                 <h2>Create Post</h2>
                 <form method="post" class="row g-3" enctype="multipart/form-data">
                     <div class="col-md-6">
                         <label for="inputEmail4" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="inputEmail4" name="title" required>
+                        <input type="text" autocomplete="off"class="form-control" id="inputEmail4" name="title" required>
                     </div>
                     
                     <div class="col-md-6">
                         <label for="inputCity" class="form-label">Location</label>
-                        <input type="text" class="form-control" id="inputCity" name="location" required>
+                        <input type="text" autocomplete="off" class="form-control" id="inputCity" name="location" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="inputState" class="form-label">Category</label>
