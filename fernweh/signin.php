@@ -63,7 +63,7 @@ if (mysqli_num_rows($result) === 1) {
             <div class="container col-md-5 mt-5">
                 <p><a href="./storyteller/signin.php" class="fs-4">Teller Sign in</a></p>
                 <p class="fs-3 fw-bolder">Story seeker sign in</p> 
-                <form method="post">
+                <form class="border p-4"method="post">
                     <?php
                         if(isset($_GET['error'])) { ?>
                         <p class="alert alert-danger" role="alert"> <?php echo $_GET['error']; ?></p>
@@ -89,6 +89,7 @@ if (mysqli_num_rows($result) === 1) {
                 </form>
             </div>
         </div>
+        <div class="sticky-lg-bottom text-dark text-center">©Fernweh 2023. All rights reserved.</div>
 </body>
 
 </html>

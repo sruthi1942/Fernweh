@@ -93,6 +93,7 @@ if (isset($_POST['submit'])) {
             </form>
         </div>
     </div>
+    <div class="sticky-lg-bottom text-dark text-center">©Fernweh 2023. All rights reserved.</div>
 </body>
 
 </html>

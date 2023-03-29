@@ -72,8 +72,8 @@ if (isset($_POST['submit'])) {
     </div>
     <div class="row">
         <div class="container col-md-5 mt-5">
-            <p class="fs-3 fw-bolder">Sign up for an account</p>
-            <form class="row g-3" method="post" enctype="multipart/form-data">
+            <p class="fs-3 fw-bolder text-center">Sign up for an account</p>
+            <form class="row g-3 border p-4" method="post" enctype="multipart/form-data">
                 <?php
                         if(isset($_GET['error'])) { ?>
                         <p class="alert alert-danger" role="alert"> <?php echo $_GET['error']; ?></p>
@@ -107,8 +107,8 @@ if (isset($_POST['submit'])) {
                     <input type="password" autocomplete="off" class="form-control"  required name="password" id="exampleInputPassword1">
                 </div>
                     
-                <div class="input-group mb-3 col-md-6">
-                    <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                <div class="col-md-6">
+                    <label for="exampleInputPassword1" class="form-label">Upload profile photo</label>
                     <input type="file" name="image" required class="form-control" id="inputGroupFile01">
                 </div>
 

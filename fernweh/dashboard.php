@@ -65,7 +65,7 @@ include 'include/conn.php';
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     
-    <div class="sticky-lg-bottom text-dark text-center">©2023. All rights reserved.</div>
+    <div class="sticky-lg-bottom text-dark text-center">©Fernweh 2023. All rights reserved.</div>
   </main>
 </body>
 </html>
