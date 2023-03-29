@@ -9,7 +9,6 @@ if (isset($_POST['submit'])) {
     $email = strip_tags($_POST['email']);
     $gender = strip_tags($_POST['gender']);
     $password = md5(strip_tags($_POST['password']));
-    $cpassword = md5(strip_tags($_POST['cpassword']));
     $image = $_FILES['image']['name'];
     $image_temp = $_FILES['image']['tmp_name'];
     
@@ -17,13 +16,12 @@ if (isset($_POST['submit'])) {
     $fname = htmlspecialchars(mysqli_real_escape_string($con, $fname));
     $lname = htmlspecialchars(mysqli_real_escape_string($con, $lname));
     $password = htmlspecialchars(mysqli_real_escape_string($con, $password));
-    $cpassword = htmlspecialchars(mysqli_real_escape_string($con, $cpassword));
     $image = htmlspecialchars(mysqli_real_escape_string($con, $image));
     $email = htmlspecialchars(mysqli_real_escape_string($con, $email));
     $gender = htmlspecialchars(mysqli_real_escape_string($con, $gender));
     
-    if ($password != $cpassword) {
-        $showError = "Passwords do not match";
+    if (empty($password)) {
+        $showError = "Please enter password";
         header("Location: signup.php?signupsuccess=false&error=$showError");
         exit();
     } else {
@@ -74,13 +72,13 @@ if (isset($_POST['submit'])) {
     </div>
     <div class="row">
         <div class="container col-md-5 mt-5">
-            <p class="fs-3 fw-bolder">Teller Sign up</p>
+            <p class="fs-3 fw-bolder">Sign up for an account</p>
             <form class="row g-3" method="post" enctype="multipart/form-data">
                 <?php
                         if(isset($_GET['error'])) { ?>
                         <p class="alert alert-danger" role="alert"> <?php echo $_GET['error']; ?></p>
                     <?php } ?>
-                <div class="mb-3 colmd-6">
+                <div class="mb-3 col-md-6">
                     <label for="exampleInputEmail1" class="form-label">First Name</label>
                     <input type="text" autocomplete="off" class="form-control" name="first" id="exampleInputEmail1" required aria-describedby="emailHelp">
 
@@ -90,13 +88,13 @@ if (isset($_POST['submit'])) {
                     <input type="text" autocomplete="off" class="form-control" name="last" required id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 </div>
-                <div class="mb-3 col-md-6">
+                <div class="mb-3 col-md-8">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
                     <input type="email" class="form-control" autocomplete="off"  name="email" id="exampleInputEmail1" required aria-describedby="emailHelp">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                         <label for="inputState" class="form-label">Gender</label>
-                        <select id="inputState" class="form-select" name="gender">
+                        <select id="inputState" class="form-select" required name="gender">
                         <option selected>Choose...</option>
                         <option value="female">Female</option>
                         <option value="male">Male</option>
@@ -107,20 +105,15 @@ if (isset($_POST['submit'])) {
                 <div class="mb-3 col-md-6">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" autocomplete="off" class="form-control"  required name="password" id="exampleInputPassword1">
-                    
                 </div>
-                <div class="mb-3 col-md-6">
-                    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" name="cpassword" id="exampleInputPassword1">
                     
-                </div> 
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 col-md-6">
                     <label class="input-group-text" for="inputGroupFile01">Upload</label>
-                    <input type="file" name="image" class="form-control" id="inputGroupFile01">
+                    <input type="file" name="image" required class="form-control" id="inputGroupFile01">
                 </div>
 
-                <div class="d-flex justify-content-between">
-                    <p>Have an account? <a href="signin.php">Sign in.</a></p> <button type="submit" class="btn btn-primary" name="submit">Create Account</button>
+                <div class="d-flex justify-content-end">
+                    </p> <button type="submit" class="btn btn-primary" name="submit">Create Account</button>
                 </div>
             </form>
             

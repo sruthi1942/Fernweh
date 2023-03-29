@@ -38,7 +38,7 @@ if($result){
           <div class="content">
            
               
-            <div class="dasboard-content px-3pt-4">
+            <div class="dasboard-content px-3 pt-4">
                     <div class="container">
                          <div class="row">
                             <div class="col-md-6">

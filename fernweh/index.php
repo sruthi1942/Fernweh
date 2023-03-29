@@ -34,26 +34,31 @@ include "include/conn.php";
     </div>
   </div>
         
-            <div class="row text-center g-4">
+            <div class="row text-center g-4 bg-#efefef">
+
+            <p class="fs-3 fw-bold" >Our Latest Stories</p>
                 <?php
                 
                                             $sql = "SELECT * FROM post ORDER BY RAND() LIMIT 3";
                                             $result = mysqli_query($con, $sql);
                                             if($result){
                                                 while($post = mysqli_fetch_assoc($result))
-                                                {   $sql2 = "SELECT fname,lname from tellers where teller_id = $tell_id ";
+                                                {
+
+                                                $tell_id = $post['teller_id'];
+                                                   $sql2 = "SELECT fname,lname from tellers where teller_id = $tell_id ";
                                                     $result2 = mysqli_query($con, $sql2);
                                                     $row = mysqli_fetch_assoc($result2);
-
+                                                    $id = $post['id'];
         
                                         ?>
                 <div class="col-lg-4 col-sm-6">
                     <div class="card" style="width: 18rem;">
-                        <img src="./storyteller/image/<?=$post['image'];?>" class="card-img-top" alt="...">
+                        <img src="./storyteller/image/<?=$post['image'];?>" class="card-img-top" alt="..." height="177" width="285">
                         <div class="card-body">
                             <h4 class="card-title"><?=$post['title'];?></h4>
                             <p class="card-text"><?=$row['fname'] .' '. $row['lname'];?></p>
-                            <a href="<?php echo 'read.php?view_id= '.$id.'; '?>" class="btn btn-primary">Go somewhere</a>
+                            <a href="<?php echo 'read.php?view_id='.$id.' ';?>" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
                 </div>
